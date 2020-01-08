@@ -1,15 +1,17 @@
 //
-//  GFButton.swift
+//  GFAvatarImageView.swift
 //  GithubFollowers
 //
-//  Created by ian schoenrock on 1/1/20.
+//  Created by ian schoenrock on 1/8/20.
 //  Copyright © 2020 ian schoenrock. All rights reserved.
 //
 
 import UIKit
 
-class GFButton: UIButton {
+class GFAvatarImageView: UIImageView {
 
+    let placeHolderImage = UIImage(named: "avatar-placeholder")!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -19,18 +21,11 @@ class GFButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(backgroundColor: UIColor, title: String) {
-        super.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
-        configure()
-    }
-    
     private func configure(){
         layer.cornerRadius = 10
-        setTitleColor(.white, for: .normal)
-        titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        clipsToBounds = true
+        image = placeHolderImage
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
+
 }
